@@ -3,7 +3,7 @@ import './App.css';
 
 const SERVER_DATA = [
   {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
-  {category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
+  {category: "Sporting Goods", price: "$9.99", stocked: false, name: "Baseball"},
   {category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
   {category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch"},
   {category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"},
@@ -48,7 +48,7 @@ class TableHead extends Component {
 }
 
 class ProductData extends Component {
-  
+
   render () {
     let tableGuts = []
     let currentCategory = ""
@@ -57,6 +57,12 @@ class ProductData extends Component {
         tableGuts.push(<b><tr><td colSpan={2}>{inventoryItem.category}</td></tr></b>)
         currentCategory = inventoryItem.category
       }
+
+      if (!inventoryItem.stocked) {
+        tableGuts.push(<tr><td><span style={{color: 'red'}}>{inventoryItem.name}</span></td><td>{inventoryItem.price}</td></tr>)
+      }
+
+      else
       tableGuts.push(<tr><td>{inventoryItem.name}</td><td>{inventoryItem.price}</td></tr>)
     })
 
