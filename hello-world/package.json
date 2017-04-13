@@ -16,12 +16,4 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
-},
-"jest": {
-  "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
-  "unmockedModulePathPatterns": [
-    "react",
-    "enzyme",
-    "jest-enzyme"
-  ]
-},
+}
